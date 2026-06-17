@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
 from app.api.auth.routes import router as auth_router
+from app.api.cart.routes import router as cart_router
 from app.api.products.routes import router as products_router
 from app.config.settings import settings
 
@@ -14,6 +15,7 @@ app = FastAPI(
 
 app.include_router(auth_router, prefix="/api/v1")
 app.include_router(products_router, prefix="/api/v1")
+app.include_router(cart_router, prefix="/api/v1")
 
 
 @app.get("/")
