@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 
+from app.api.auth.routes import router as auth_router
 from app.config.settings import settings
 
 
@@ -8,6 +9,9 @@ app = FastAPI(
     version=settings.API_VERSION,
     description="Backend API for ThreadForge custom clothing e-commerce platform",
 )
+
+
+app.include_router(auth_router, prefix="/api/v1")
 
 
 @app.get("/")
