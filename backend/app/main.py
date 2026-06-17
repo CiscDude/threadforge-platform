@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 
+from app.api.admin.routes import router as admin_router
 from app.api.auth.routes import router as auth_router
 from app.api.cart.routes import router as cart_router
 from app.api.customization.routes import router as customization_router
@@ -29,6 +30,7 @@ app.include_router(payments_router, prefix="/api/v1")
 app.include_router(customization_router, prefix="/api/v1")
 app.include_router(users_router, prefix="/api/v1")
 app.include_router(uploads_router, prefix="/api/v1")
+app.include_router(admin_router, prefix="/api/v1")
 
 
 @app.get("/")
