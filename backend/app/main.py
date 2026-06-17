@@ -11,6 +11,7 @@ from app.api.products.routes import router as products_router
 from app.api.uploads_routes import router as uploads_router
 from app.api.users.routes import router as users_router
 from app.config.settings import settings
+from app.middleware.error_handler import ErrorHandlerMiddleware
 
 
 app = FastAPI(
@@ -19,6 +20,8 @@ app = FastAPI(
     description="Backend API for ThreadForge custom clothing e-commerce platform",
 )
 
+
+app.add_middleware(ErrorHandlerMiddleware)
 
 app.mount("/uploads", StaticFiles(directory="backend/uploads"), name="uploads")
 
