@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-
+from app.api.customization.routes import router as customization_router
 from app.api.auth.routes import router as auth_router
 from app.api.cart.routes import router as cart_router
 from app.api.orders.routes import router as orders_router
@@ -20,7 +20,7 @@ app.include_router(products_router, prefix="/api/v1")
 app.include_router(cart_router, prefix="/api/v1")
 app.include_router(orders_router, prefix="/api/v1")
 app.include_router(payments_router, prefix="/api/v1")
-
+app.include_router(customization_router, prefix="/api/v1")
 
 @app.get("/")
 def root():
