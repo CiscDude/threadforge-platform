@@ -23,7 +23,7 @@ app = FastAPI(
 
 app.add_middleware(ErrorHandlerMiddleware)
 
-app.mount("/uploads", StaticFiles(directory="backend/uploads"), name="uploads")
+app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 
 app.include_router(auth_router, prefix="/api/v1")
 app.include_router(products_router, prefix="/api/v1")
